@@ -8,24 +8,35 @@ var windowPopUp = ( function(){
             
         },
         
-        clickListen : function() {
-            var screenWidth = window.screen.availWidth
-            , screenHeight = window.screen.availHeight
-            ;
+        clickListen : function() {            
 
             $('.windowPopUp').on('click', function(e){
   
             e.preventDefault();
             
-            var element = $(this)
+            var availableWidth = window.screen.availWidth
+              , availableHeight = window.screen.availHeight
+              , availableLeft = window.screen.availLeft
+              , screenWidth = window.screen.width
+              , screenHeight = window.screen.height
+              , element = $(this)
               , url = element.attr('href')
               , width = element.attr('data-popup-width')
               , height = element.attr('data-popup-height')
-              , modalWidth = ( width > screenWidth ) ? screenWidth - 80 : width
-              , modalHeight = ( height > screenHeight ) ? screenHeight - 80 : height
-              , offsetLeft = (screenWidth - modalWidth) / 2
-              , offsetTop = (screenHeight - modalHeight) / 2
+              , modalWidth = ( width > availableWidth ) ? screenWidth - 80 : width
+              , modalHeight = ( height > availableHeight ) ? availableHeight - 80 : height
+              , offsetLeft = (availableWidth - modalWidth) / 2
+              , offsetTop = (availableHeight - modalHeight) / 2
               ;
+              
+              /*acount for users with dual-monitors (first for when monitor on left,
+               *second condition for when monitor on right)
+               */
+                if (availableLeft < 0){
+                    offsetLeft = availableLeft + offsetLeft;
+                }else if (availableLeft > 0){
+                    offsetLeft = availableLeft + (offsetLeft);
+                }
     
                 console.log(element, url, modalWidth, modalHeight, offsetTop, offsetLeft);
   
