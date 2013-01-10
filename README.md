@@ -26,8 +26,10 @@ To get it to work follow the steps below...
 
 ## Things to do ##
 
->Account for users that use dual-monitors
+>~~Account for users that use dual-monitors~~
 >
 >~~Account for when the specified dimensions for pop-up exceed the dimensions of the screen.~~
 >
 >Could probably make this jQuery independent and purely javascript
+>
+>Account for users that use dual monitors, **vertically**
