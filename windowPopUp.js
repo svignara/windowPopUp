@@ -1,13 +1,20 @@
+var screenWidth = window.screen.availWidth
+  , screenHeight = window.screen.availHeight
+  ;
+
+
 $('.windowPopUp').on('click', function(e){
   
   e.preventDefault();
   
   var element = $(this)
     , url = element.attr('href')
-    , modalWidth = element.attr('data-popup-width')
-    , modalHeight = element.attr('data-popup-height')
-    , offsetLeft = (window.screen.availWidth - modalWidth) / 2
-    , offsetTop = (window.screen.availHeight - modalHeight) / 2
+    , width = element.attr('data-popup-width')
+    , height = element.attr('data-popup-height')
+    , modalWidth = ( width > screenWidth ) ? screenWidth - 80 : width
+    , modalHeight = ( height > screenHeight ) ? screenHeight - 80 : height
+    , offsetLeft = (screenWidth - modalWidth) / 2
+    , offsetTop = (screenHeight - modalHeight) / 2
     ;
     
   console.log(element, url, modalWidth, modalHeight, offsetTop, offsetLeft);
