@@ -4,7 +4,7 @@ var windowPopUp = ( function(){
         
         init : function(){
             
-            this.clickList();
+            this.clickListen();
             
         },
         
