@@ -23,7 +23,7 @@ var windowPopUp = ( function(){
               , height = element.attr('data-popup-height')
               , modalWidth = ( width > availableWidth ) ? availableWidth - 80 : width
               , modalHeight = ( height > availableHeight ) ? availableHeight - 80 : height
-              , offsetLeft = availableLeft + ( (availableWidth - modalWidth) / 2 )
+              , offsetLeft = (availableLeft) ? availableLeft + ( (availableWidth - modalWidth) / 2 ) : ( (availableWidth - modalWidth) / 2 )
               , offsetTop = ( (availableHeight - modalHeight) / 2 )
               ;
     
